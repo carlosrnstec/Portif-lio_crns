@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfólio • Carlos R. N. Sanstos</title>
+  <meta name="description" content="Portfólio de Carlos R. N. Sanstos — Estudante de Análise e Desenvolvimento de Sistemas, estudando Python e em breve JavaScript." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:'#EEF2FF',100:'#E0E7FF',200:'#C7D2FE',300:'#A5B4FC',400:'#818CF8',
+              500:'#6366F1',600:'#4F46E5',700:'#4338CA',800:'#3730A3',900:'#312E81'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root { color-scheme: dark; }
+    html { scroll-behavior: smooth; }
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+    }
+    .shadow-glow { box-shadow: 0 10px 40px rgba(79,70,229,.35), inset 0 0 0 1px rgba(255,255,255,.06); }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #fff !important; color: #000 !important; }
+      .glass, .shadow-glow { box-shadow: none !important; border-color: #ddd !important; background: #fff !important; }
+      a { color: #000 !important; text-decoration: underline !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-950 via-[#0B1020] to-slate-950 text-slate-100 antialiased" style="font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;">
+  <!-- Fundo decorativo -->
+  <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute -top-32 -left-32 w-[40rem] h-[40rem] rounded-full bg-brand-600/30 blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-[32rem] h-[32rem] rounded-full bg-fuchsia-600/20 blur-3xl"></div>
+    <svg class="absolute -right-10 -top-10 opacity-20" width="340" height="340" viewBox="0 0 200 200" fill="none">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#6366F1"/>
+          <stop offset="100%" stop-color="#A855F7"/>
+        </linearGradient>
+      </defs>
+      <path d="M48.7,-65.8C62.8,-58.5,74.9,-47.2,81.6,-33.1C88.3,-19,89.6,-2.1,85.1,13.2C80.7,28.6,70.5,42.3,57.8,53.9C45.1,65.6,30,75.3,13.2,80.3C-3.6,85.4,-22.1,85.8,-38.1,79.6C-54.1,73.5,-67.6,60.9,-76.2,45.7C-84.8,30.4,-88.6,12.6,-87.5,-4.8C-86.3,-22.3,-80.2,-39.4,-69.5,-52.3C-58.9,-65.2,-44,-74.1,-28.3,-80.3C-12.6,-86.4,3.8,-89.7,18.8,-85.5C33.9,-81.3,47.6,-69.7,48.7,-65.8Z" fill="url(#g1)" transform="translate(100 100)"/>
+    </svg>
+  </div>
+
+  <!-- Container -->
+  <div class="max-w-6xl mx-auto px-6 py-8 md:py-12">
+    <!-- Header -->
+    <header class="no-print flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <!-- Avatar SVG com iniciais -->
+        <div class="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-500 to-fuchsia-600 flex items-center justify-center font-extrabold text-white shadow-glow">
+          <span id="initials" class="tracking-wide">CRNS</span>
+          <span class="absolute -inset-0.5 -z-10 rounded-3xl blur-lg bg-brand-500/30"></span>
+        </div>
+        <div>
+          <p id="headerName" class="text-lg font-semibold">Carlos R. N. Sanstos</p>
+          <p id="headerRole" class="text-slate-300 text-sm">Estudante de ADS</p>
+        </div>
+      </div>
+      <nav class="hidden md:flex items-center gap-1">
+        <a href="#sobre" class="px-3 py-2 rounded-lg text-slate-200 hover:text-white hover:bg-white/5 transition">Sobre</a>
+        <a href="#habilidades" class="px-3 py-2 rounded-lg text-slate-200 hover:text-white hover:bg-white/5 transition">Habilidades</a>
+        <a href="#projetos" class="px-3 py-2 rounded-lg text-slate-200 hover:text-white hover:bg-white/5 transition">Projetos</a>
+        <a href="#formacao" class="px-3 py-2 rounded-lg text-slate-200 hover:text-white hover:bg-white/5 transition">Formação</a>
+        <a href="#contato" class="px-3 py-2 rounded-lg text-slate-200 hover:text-white hover:bg-white/5 transition">Contato</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button id="printBtn" class="no-print inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white transition">
+          <span>Salvar PDF</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" class="opacity-90"><path fill="currentColor" d="M17 17H7v2h10zm-2-3H7v2h8zm3-7h-3V2H9v5H6l6 6z"/></svg>
+        </button>
+        <button id="settingsOpen" class="no-print inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white transition shadow-glow">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M12 8a4 4 0 1 1 0 8a4 4 0 0 1 0-8m8.94 3.06l-1.66-.27a7 7 0 0 0-.68-1.64l.98-1.37a.5.5 0 0 0-.06-.64l-1.41-1.41a.5.5 0 0 0-.64-.06l-1.37.98a7 7 0 0 0-1.64-.68l-.27-1.66A.5.5 0 0 0 12.5 2h-2a.5.5 0 0 0-.5.41l-.27 1.66c-.58.16-1.13.39-1.64.68l-1.37-.98a.5.5 0 0 0-.64.06L4.1 5.24a.5.5 0 0 0-.06.64l.98 1.37c-.29.51-.52 1.06-.68 1.64l-1.66.27A.5.5 0 0 0 2 9.5v2c0 .24.17.45.41.49l1.66.27c.16.58.39 1.13.68 1.64l-.98 1.37a.5.5 0 0 0 .06.64l1.41 1.41c.18.18.46.2.64.06l1.37-.98c.51.29 1.06.52 1.64.68l.27 1.66c.04.24.25.41.49.41h2c.24 0 .45-.17.49-.41l.27-1.66c.58-.16 1.13-.39 1.64-.68l1.37.98c.18.14.46.12.64-.06l1.41-1.41a.5.5 0 0 0 .06-.64l-.98-1.37c.29-.51.52-1.06.68-1.64l1.66-.27c.24-.04.41-.25.41-.49v-2a.5.5 0 0 0-.41-.49"/></svg>
+          <span>Personalizar</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="mt-10 md:mt-14 glass rounded-3xl p-6 md:p-10 shadow-glow">
+      <div class="flex flex-col md:flex-row items-center md:items-end gap-6">
+        <div class="md:flex-1 flex items-center gap-5">
+          <div class="relative w-24 h-24 md:w-28 md:h-28 rounded-3xl bg-gradient-to-br from-brand-500 to-fuchsia-600 flex items-center justify-center text-2xl md:text-3xl font-extrabold shadow-glow">
+            <span id="heroInitials">CRNS</span>
+            <span class="absolute -inset-1 -z-10 rounded-[2rem] blur-xl bg-brand-500/30"></span>
+          </div>
+          <div class="space-y-2">
+            <h1 id="name" class="text-3xl md:text-5xl font-extrabold leading-tight">Carlos R. N. Sanstos</h1>
+            <p id="role" class="text-slate-300 text-base md:text-lg">Estudante de Análise e Desenvolvimento de Sistemas</p>
+            <div class="flex flex-wrap items-center gap-2 pt-1">
+              <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/15 text-brand-100 border border-brand-500/30">
+                <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+                Estudando Python
+              </span>
+              <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-fuchsia-500/10 text-fuchsia-100 border border-fuchsia-500/25">
+                <span class="w-2 h-2 rounded-full bg-fuchsia-400"></span>
+                Em breve: JavaScript
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="md:flex-none flex items-center gap-3 w-full md:w-auto">
+          <button id="copyEmailBtn" class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white transition">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M20 8l-8 5l-8-5V6l8 5l8-5z"/><path fill="currentColor" d="M4 8v10h16V8l-8 5z"/></svg>
+            Copiar e-mail
+          </button>
+          <button id="mailtoBtn" class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white transition shadow-glow">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12L2 6h20zm0 2L2 8v10h20V8z"/></svg>
+            Abrir e-mail
+          </button>
+        </div>
+      </div>
+
+      <!-- Socials -->
+      <div class="mt-6 flex items-center gap-3">
+        <button id="githubBtn" class="group inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 transition">
+          <svg width="18" height="18" viewBox="0 0 24 24" class="opacity-90 group-hover:opacity-100"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48c0-.24-.01-.87-.01-1.71c-2.78.6-3.37-1.34-3.37-1.34c-.45-1.15-1.11-1.46-1.11-1.46c-.9-.62.07-.61.07-.61c1 .07 1.53 1.03 1.53 1.03c.89 1.52 2.34 1.08 2.91.83c.09-.65.35-1.08.63-1.33c-2.22-.25-4.56-1.11-4.56-4.95c0-1.09.39-1.98 1.03-2.68c-.1-.25-.45-1.28.1-2.67c0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.8c.85 0 1.71.11 2.51.32c1.9-1.29 2.74-1.02 2.74-1.02c.55 1.39.2 2.42.1 2.67c.64.7 1.02 1.59 1.02 2.68c0 3.85-2.34 4.7-4.57 4.95c.36.31.68.92.68 1.86c0 1.34-.01 2.42-.01 2.75c0 .26.18.57.69.47A10 10 0 0 0 12 2"/></svg>
+          <span class="text-slate-200">GitHub</span>
+        </button>
+        <button id="linkedinBtn" class="group inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 transition">
+          <svg width="18" height="18" viewBox="0 0 24 24" class="opacity-90 group-hover:opacity-100"><path fill="currentColor" d="M6.94 6.5A2.44 2.44 0 1 1 4.5 4.06A2.44 2.44 0 0 1 6.94 6.5M7 8.63H2.98v12.39H7zm6.72 0H9.71v12.39h4.01v-6.92c0-1.83.35-3.61 2.63-3.61c2.26 0 2.29 2.06 2.29 3.73v6.8h4.02v-7.68c0-3.77-.81-6.67-5.25-6.67a4.6 4.6 0 0 0-4.01 2.2z"/></svg>
+          <span class="text-slate-200">LinkedIn</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="mt-10 md:mt-14">
+      <div class="glass rounded-3xl p-6 md:p-8">
+        <h2 class="text-xl md:text-2xl font-bold mb-3">Sobre mim</h2>
+        <p id="about" class="text-slate-300 leading-relaxed">
+          Olá! Sou <strong class="text-white">Carlos R. N. Sanstos</strong>, estudante de Análise e Desenvolvimento de Sistemas.
+          No momento estou focado em <span class="text-brand-300 font-medium">Python</span> e pretendo em breve aprender
+          <span class="text-fuchsia-300 font-medium">JavaScript</span> para evoluir no desenvolvimento web.
+          Gosto de criar projetos simples e bem feitos, com código limpo e foco em aprendizado prático.
+        </p>
+      </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades" class="mt-10 md:mt-14">
+      <div class="glass rounded-3xl p-6 md:p-8">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-xl md:text-2xl font-bold">Habilidades</h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Python -->
+          <div class="rounded-2xl p-4 border border-white/10 bg-white/5">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-semibold">Python</span>
+              <span class="text-xs px-2 py-1 rounded-full bg-brand-500/15 border border-brand-500/30 text-brand-100">Estudando</span>
+            </div>
+            <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+              <div class="h-full w-2/5 bg-gradient-to-r from-brand-500 to-brand-400"></div>
+            </div>
+            <p class="text-sm text-slate-400 mt-2">Sintaxe, funções, coleções e pequenos scripts.</p>
+          </div>
+          <!-- JavaScript -->
+          <div class="rounded-2xl p-4 border border-white/10 bg-white/5">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-semibold">JavaScript</span>
+              <span class="text-xs px-2 py-1 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/25 text-fuchsia-100">Em breve</span>
+            </div>
+            <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+              <div class="h-full w-1/6 bg-gradient-to-r from-fuchsia-500 to-pink-500"></div>
+            </div>
+            <p class="text-sm text-slate-400 mt-2">Base para web interativa e lógica de front-end.</p>
+          </div>
+          <!-- HTML & CSS -->
+          <div class="rounded-2xl p-4 border border-white/10 bg-white/5">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-semibold">HTML & CSS</span>
+              <span class="text-xs px-2 py-1 rounded-full bg-white/10 border border-white/20 text-slate-200">Fundamentos</span>
+            </div>
+            <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+              <div class="h-full w-2/5 bg-gradient-to-r from-emerald-400 to-teal-400"></div>
+            </div>
+            <p class="text-sm text-slate-400 mt-2">Marcação semântica e estilos responsivos.</p>
+          </div>
+          <!-- Git -->
+          <div class="rounded-2xl p-4 border border-white/10 bg-white/5">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-semibold">Git & GitHub</span>
+              <span class="text-xs px-2 py-1 rounded-full bg-white/10 border border-white/20 text-slate-200">Básico</span>
+            </div>
+            <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+              <div class="h-full w-1/3 bg-gradient-to-r from-amber-400 to-orange-400"></div>
+            </div>
+            <p class="text-sm text-slate-400 mt-2">Controle de versão e repositórios.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projetos -->
+    <section id="projetos" class="mt-10 md:mt-14">
+      <div class="glass rounded-3xl p-6 md:p-8">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-xl md:text-2xl font-bold">Projetos</h2>
+          <p class="text-slate-400 text-sm">Dica: conecte seus repositórios no botão "Personalizar".</p>
+        </div>
+
+        <div id="projectsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- Formação -->
+    <section id="formacao" class="mt-10 md:mt-14">
+      <div class="glass rounded-3xl p-6 md:p-8">
+        <h2 class="text-xl md:text-2xl font-bold mb-4">Formação</h2>
+        <div class="space-y-4">
+          <div class="flex items-start gap-4 rounded-2xl p-4 border border-white/10 bg-white/5">
+            <div class="mt-1">
+              <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-brand-600 text-white">
+                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2L1 7l11 5l9-4.09V17h2V7z"/><path fill="currentColor" d="M11 12.08L3 8.4V17l8 4l8-4V8.4z"/></svg>
+              </span>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between gap-2">
+                <p class="font-semibold">Análise e Desenvolvimento de Sistemas</p>
+                <span class="text-xs text-slate-400">Em andamento</span>
+              </div>
+              <p class="text-slate-300 mt-1">Foco em fundamentos de programação, lógica e boas práticas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="mt-10 md:mt-14">
+      <div class="glass rounded-3xl p-6 md:p-8">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-xl md:text-2xl font-bold">Contato</h2>
+          <span id="emailLabel" class="text-sm text-slate-400"></span>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="md:col-span-2">
+            <div class="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4 mb-3">
+              <p class="text-amber-100 text-sm">
+                Este formulário é um demo local (não envia e-mail de verdade). Use os botões acima para falar comigo.
+              </p>
+            </div>
+            <form id="contactForm" class="space-y-3">
+              <div class="grid sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-sm mb-1">Seu nome</label>
+                  <input required placeholder="Seu nome" class="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-brand-500/50" />
+                </div>
+                <div>
+                  <label class="block text-sm mb-1">Seu e-mail</label>
+                  <input required type="email" placeholder="voce@exemplo.com" class="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-brand-500/50" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm mb-1">Mensagem</label>
+                <textarea required placeholder="Sua mensagem..." rows="4" class="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-brand-500/50"></textarea>
+              </div>
+              <div class="flex items-center gap-2">
+                <button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white transition">
+                  <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="m3.4 20.4l17.45-7.48c.82-.35.76-1.55-.09-1.83L3.31 3.15C2.5 2.86 1.73 3.64 2 4.44l2.05 5.71l9.03 1.85l-9.02 1.85L2 19.56c-.27.8.5 1.58 1.4 1.34"/></svg>
+                  Enviar (demo)
+                </button>
+                <span class="text-sm text-slate-400">Uma mensagem de confirmação aparecerá aqui.</span>
+              </div>
+            </form>
+          </div>
+          <div class="space-y-3">
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+              <p class="text-sm text-slate-400">E-mail</p>
+              <p id="emailText" class="font-semibold text-white break-all">seu.email@exemplo.com</p>
+              <div class="mt-3 flex gap-2">
+                <button id="copyEmailBtn2" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 transition">
+                  <svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12zm3 4H8c-1.1 0-2 .9-2 2v14h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2m0 16H8V7h11z"/></svg>
+                  Copiar
+                </button>
+                <button id="mailtoBtn2" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white transition">
+                  <svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M20 8l-8 5l-8-5V6l8 5l8-5z"/><path fill="currentColor" d="M4 8v10h16V8l-8 5z"/></svg>
+                  Abrir
+                </button>
+              </div>
+            </div>
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+              <p class="text-sm text-slate-400">Redes</p>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <button id="socialGithub2" class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 transition">GitHub</button>
+                <button id="socialLinkedin2" class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 transition">LinkedIn</button>
+              </div>
+              <p class="text-xs text-slate-500 mt-2">Configure os links no botão "Personalizar".</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="mt-10 md:mt-14 mb-6 text-center text-slate-400">
+      <p>© <span id="year"></span> <span id="footerName">Carlos R. N. Sanstos</span>. Feito com carinho e foco no aprendizado.</p>
+    </footer>
+  </div>
+
+  <!-- Botão voltar ao topo -->
+  <button id="backToTop" class="no-print fixed bottom-6 right-6 z-40 opacity-0 pointer-events-none transition-all duration-300 translate-y-3 px-4 py-3 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/10 shadow-glow">
+    ↑ Topo
+  </button>
+
+  <!-- Toast -->
+  <div id="toast" class="no-print fixed left-1/2 -translate-x-1/2 bottom-5 z-50 px-4 py-3 rounded-xl bg-slate-900/90 text-white border border-white/10 shadow-lg opacity-0 pointer-events-none transition"></div>
+
+  <!-- Modal de Personalização -->
+  <div id="settingsModal" class="no-print fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative mx-auto mt-16 w-[92%] max-w-2xl glass rounded-3xl p-6 md:p-8 shadow-glow">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg md:text-xl font-bold">Personalizar Portfólio</h3>
+        <button id="settingsClose" class="p-2 rounded-xl bg-white/5 hover:bg-white/10">✕</button>
+      </div>
+      <form id="settingsForm" class="space-y-4">
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm mb-1">Seu nome</label>
+            <input id="inpName" required class="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-brand-500/50" />
+          </div>
+          <div>
+            <label class="block text-sm mb-1">Função/posição</label>
+            <input id="inpRole" required class="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-brand-500/50" />
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm mb-1">E-mail</label>
+            <input id="inpEmail" type="email" required class="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-brand-500/50" />
+          </div>
+          <div>
+            <label class="block text-sm mb-1">Iniciais (avatar)</label>
+            <input id="inpInitials" maxlength="6" class="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-brand-500/50" />
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm mb-1">URL do GitHub</label>
+            <input id="inpGithub" placeholder="https://github.com/seuusuario" class="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-brand-500/50" />
+          </div>
+          <div>
+            <label class="block text-sm mb-1">URL do LinkedIn</label>
+            <input id="inpLinkedin" placeholder="https://www.linkedin.com/in/seuusuario" class="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-brand-500/50" />
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-2">
+          <button id="resetBtn" type="button" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10">Redefinir</button>
+          <div class="flex items-center gap-2">
+            <button type="button" id="settingsClose2" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10">Cancelar</button>
+            <button class="px-5 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white shadow-glow">Salvar</button>
+          </div>
+        </div>
+      </form>
+      <p class="text-xs text-slate-400 mt-4">Dica: as alterações ficam salvas no seu navegador (localmente).</p>
+    </div>
+  </div>
+
+  <script>
+    // Estado e padrões
+    const defaults = {
+      name: "Carlos R. N. Sanstos",
+      role: "Estudante de Análise e Desenvolvimento de Sistemas",
+      email: "seu.email@exemplo.com",
+      initials: "CRNS",
+      github: "",
+      linkedin: "",
+      projects: [
+        {
+          id: "p1",
+          title: "Calculadora Simples (CLI)",
+          desc: "Uma calculadora de terminal com operações básicas e histórico.",
+          tags: ["Python", "Lógica"],
+          repo: ""
+        },
+        {
+          id: "p2",
+          title: "Jogo da Adivinhação",
+          desc: "Adivinhe o número com dicas. Ótimo para treinar loops e condições.",
+          tags: ["Python"],
+          repo: ""
+        },
+        {
+          id: "p3",
+          title: "Página de Estudos",
+          desc: "Página estática para anotações e experimentos com HTML/CSS/JS.",
+          tags: ["HTML", "CSS", "JavaScript"],
+          repo: ""
+        }
+      ]
+    };
+
+    const stateKey = "portfolio_carlos_state_v1";
+    let state = loadState();
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(stateKey);
+        if (!raw) return JSON.parse(JSON.stringify(defaults));
+        const parsed = JSON.parse(raw);
+        // Garantir chaves
+        return { ...JSON.parse(JSON.stringify(defaults)), ...parsed };
+      } catch {
+        return JSON.parse(JSON.stringify(defaults));
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem(stateKey, JSON.stringify(state));
+    }
+
+    // Seletores
+    const els = {
+      headerName: document.getElementById("headerName"),
+      headerRole: document.getElementById("headerRole"),
+      name: document.getElementById("name"),
+      role: document.getElementById("role"),
+      initials: document.getElementById("initials"),
+      heroInitials: document.getElementById("heroInitials"),
+      emailText: document.getElementById("emailText"),
+      emailLabel: document.getElementById("emailLabel"),
+      footerName: document.getElementById("footerName"),
+      year: document.getElementById("year"),
+      projectsGrid: document.getElementById("projectsGrid"),
+      toast: document.getElementById("toast"),
+      backToTop: document.getElementById("backToTop"),
+      // Buttons
+      copyEmailBtn: document.getElementById("copyEmailBtn"),
+      copyEmailBtn2: document.getElementById("copyEmailBtn2"),
+      mailtoBtn: document.getElementById("mailtoBtn"),
+      mailtoBtn2: document.getElementById("mailtoBtn2"),
+      githubBtn: document.getElementById("githubBtn"),
+      linkedinBtn: document.getElementById("linkedinBtn"),
+      socialGithub2: document.getElementById("socialGithub2"),
+      socialLinkedin2: document.getElementById("socialLinkedin2"),
+      printBtn: document.getElementById("printBtn"),
+      // Settings
+      settingsOpen: document.getElementById("settingsOpen"),
+      settingsClose: document.getElementById("settingsClose"),
+      settingsClose2: document.getElementById("settingsClose2"),
+      settingsModal: document.getElementById("settingsModal"),
+      settingsForm: document.getElementById("settingsForm"),
+      inpName: document.getElementById("inpName"),
+      inpRole: document.getElementById("inpRole"),
+      inpEmail: document.getElementById("inpEmail"),
+      inpInitials: document.getElementById("inpInitials"),
+      inpGithub: document.getElementById("inpGithub"),
+      inpLinkedin: document.getElementById("inpLinkedin"),
+      resetBtn: document.getElementById("resetBtn"),
+      contactForm: document.getElementById("contactForm"),
+    };
+
+    // Utilidades
+    function showToast(message, type = "info") {
+      const t = els.toast;
+      t.textContent = message;
+      t.classList.remove("opacity-0", "pointer-events-none");
+      t.style.transform = "translate(-50%, 0)";
+      t.style.opacity = "1";
+      t.style.pointerEvents = "auto";
+      t.style.borderColor = type === "error" ? "rgb(248 113 113 / 0.4)" : "rgba(255,255,255,0.1)";
+      t.style.background = type === "error" ? "rgba(127, 29, 29, 0.85)" : "rgba(15, 23, 42, 0.9)";
+      clearTimeout(t._timeout);
+      t._timeout = setTimeout(() => {
+        t.style.opacity = "0";
+        t.style.pointerEvents = "none";
+      }, 2200);
+    }
+
+    function openExternal(url) {
+      try {
+        if (!url || !/^https?:\/\//i.test(url)) {
+          showToast("Link não configurado ainda.", "error");
+          return;
+        }
+        window.open(url, "_blank", "noopener");
+      } catch {
+        showToast("Não foi possível abrir o link.", "error");
+      }
+    }
+
+    function updateProfileUI() {
+      els.headerName.textContent = state.name;
+      els.headerRole.textContent = state.role || "Estudante";
+      els.name.textContent = state.name;
+      els.role.textContent = state.role;
+      els.initials.textContent = state.initials || deriveInitials(state.name);
+      els.heroInitials.textContent = state.initials || deriveInitials(state.name);
+      els.emailText.textContent = state.email;
+      els.emailLabel.textContent = state.email;
+      els.footerName.textContent = state.name;
+      els.year.textContent = new Date().getFullYear();
+
+      // Render projetos (limpo e recrio pequenas quantidades com IDs fixos)
+      renderProjects();
+    }
+
+    function deriveInitials(name) {
+      if (!name) return "CRNS";
+      const parts = name.trim().split(/\s+/).slice(0, 4);
+      const initials = parts.map(p => p[0]?.toUpperCase() || "").join("");
+      return initials || "CRNS";
+    }
+
+    function tagPill(text) {
+      return `
+        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">${text}</span>
+      `;
+    }
+
+    function renderProjects() {
+      const grid = els.projectsGrid;
+      // Atualização seletiva: recria por ser lista pequena
+      grid.innerHTML = "";
+      state.projects.forEach((p) => {
+        const card = document.createElement("article");
+        card.className = "rounded-2xl p-5 border border-white/10 bg-white/5 hover:bg-white/[0.07] transition";
+        card.innerHTML = `
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="font-semibold text-lg">${p.title}</h3>
+            <span class="text-xs px-2 py-1 rounded-full bg-white/10 border border-white/20">#${p.id}</span>
+          </div>
+          <p class="text-slate-300 mt-2">${p.desc}</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            ${p.tags.map(tagPill).join("")}
+          </div>
+          <div class="mt-4 flex items-center gap-2">
+            <button data-id="${p.id}" class="btn-repo inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white transition">
+              <svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48c0-.24-.01-.87-.01-1.71c-2.78.6-3.37-1.34-3.37-1.34c-.45-1.15-1.11-1.46-1.11-1.46c-.9-.62.07-.61.07-.61c1 .07 1.53 1.03 1.53 1.03c.89 1.52 2.34 1.08 2.91.83c.09-.65.35-1.08.63-1.33c-2.22-.25-4.56-1.11-4.56-4.95c0-1.09.39-1.98 1.03-2.68c-.1-.25-.45-1.28.1-2.67c0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.8c.85 0 1.71.11 2.51.32c1.9-1.29 2.74-1.02 2.74-1.02c.55 1.39.2 2.42.1 2.67c.64.7 1.02 1.59 1.02 2.68c0 3.85-2.34 4.7-4.57 4.95c.36.31.68.92.68 1.86c0 1.34-.01 2.42-.01 2.75c0 .26.18.57.69.47A10 10 0 0 0 12 2"/></svg>
+              Repositório
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+      // Listeners dos botões de repositório
+      grid.querySelectorAll(".btn-repo").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          const id = e.currentTarget.getAttribute("data-id");
+          const proj = state.projects.find(x => x.id === id);
+          openExternal(proj?.repo);
+        });
+      });
+    }
+
+    // Eventos
+    function copyEmail() {
+      const text = state.email || "";
+      if (!text) { showToast("E-mail não definido.", "error"); return; }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => showToast("E-mail copiado!")).catch(() => fallbackCopy(text));
+      } else {
+        fallbackCopy(text);
+      }
+    }
+    function fallbackCopy(text) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); showToast("E-mail copiado!"); }
+      catch { showToast("Não foi possível copiar.", "error"); }
+      finally { document.body.removeChild(ta); }
+    }
+
+    function openMailto() {
+      const email = state.email || "";
+      if (!email) { showToast("Defina seu e-mail em Personalizar.", "error"); return; }
+      try { window.open(`mailto:${email}`, "_blank"); } catch { showToast("Não foi possível abrir o e-mail.", "error"); }
+    }
+
+    function showModal(show) {
+      els.settingsModal.classList.toggle("hidden", !show);
+      document.body.style.overflow = show ? "hidden" : "";
+    }
+
+    function fillSettings() {
+      els.inpName.value = state.name || "";
+      els.inpRole.value = state.role || "";
+      els.inpEmail.value = state.email || "";
+      els.inpInitials.value = state.initials || deriveInitials(state.name);
+      els.inpGithub.value = state.github || "";
+      els.inpLinkedin.value = state.linkedin || "";
+    }
+
+    function resetSettings() {
+      state = JSON.parse(JSON.stringify(defaults));
+      saveState();
+      updateProfileUI();
+      fillSettings();
+      showToast("Dados redefinidos.");
+    }
+
+    // Inicialização
+    updateProfileUI();
+    fillSettings();
+
+    // Handlers globais
+    els.copyEmailBtn.addEventListener("click", copyEmail);
+    els.copyEmailBtn2.addEventListener("click", copyEmail);
+    els.mailtoBtn.addEventListener("click", openMailto);
+    els.mailtoBtn2.addEventListener("click", openMailto);
+
+    els.githubBtn.addEventListener("click", () => {
+      const url = state.github || "";
+      if (!url) showToast("Adicione seu GitHub em Personalizar.", "error");
+      else openExternal(url);
+    });
+    els.linkedinBtn.addEventListener("click", () => {
+      const url = state.linkedin || "";
+      if (!url) showToast("Adicione seu LinkedIn em Personalizar.", "error");
+      else openExternal(url);
+    });
+    els.socialGithub2.addEventListener("click", () => {
+      const url = state.github || "";
+      if (!url) showToast("Adicione seu GitHub em Personalizar.", "error");
+      else openExternal(url);
+    });
+    els.socialLinkedin2.addEventListener("click", () => {
+      const url = state.linkedin || "";
+      if (!url) showToast("Adicione seu LinkedIn em Personalizar.", "error");
+      else openExternal(url);
+    });
+
+    els.printBtn.addEventListener("click", () => window.print());
+
+    // Back to top visibilidade
+    window.addEventListener("scroll", () => {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      if (y > 250) {
+        els.backToTop.classList.remove("opacity-0", "pointer-events-none", "translate-y-3");
+      } else {
+        els.backToTop.classList.add("opacity-0", "pointer-events-none", "translate-y-3");
+      }
+    });
+    els.backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    // Settings modal
+    els.settingsOpen.addEventListener("click", () => showModal(true));
+    els.settingsClose.addEventListener("click", () => showModal(false));
+    els.settingsClose2.addEventListener("click", (e) => { e.preventDefault(); showModal(false); });
+    els.resetBtn.addEventListener("click", resetSettings);
+
+    els.settingsForm.addEventListener("submit", (e) => {
+      e.preventDefault(); // sem navegação
+      // Sanitização simples
+      const name = els.inpName.value.trim();
+      const role = els.inpRole.value.trim();
+      const email = els.inpEmail.value.trim();
+      const initials = (els.inpInitials.value.trim() || deriveInitials(name)).toUpperCase().slice(0, 6);
+      const github = els.inpGithub.value.trim();
+      const linkedin = els.inpLinkedin.value.trim();
+
+      state.name = name || defaults.name;
+      state.role = role || defaults.role;
+      state.email = email || defaults.email;
+      state.initials = initials || deriveInitials(state.name);
+      state.github = github;
+      state.linkedin = linkedin;
+
+      saveState();
+      updateProfileUI();
+      showToast("Informações salvas!");
+      showModal(false);
+    });
+
+    // Formulário de contato (demo)
+    els.contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      showToast("Mensagem registrada localmente (demo). Obrigado!");
+      els.contactForm.reset();
+    });
+
+    // Clique fora do modal fecha
+    els.settingsModal.addEventListener("click", (e) => {
+      if (e.target === els.settingsModal) showModal(false);
+    });
+
+    // Acessibilidade: Esc fecha modal
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") showModal(false);
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'983db01bf1f8d97a',t:'MTc1ODY2ODczOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
